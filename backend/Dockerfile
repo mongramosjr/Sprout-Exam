@@ -1,8 +1,11 @@
 # Use the official Python image as the base image
 FROM python:latest
 
-# Set the working directory in the container
+# Set the working directory inside the container
 WORKDIR /app
+
+# Copy the contents of the app directory (main.py and other files) to the container
+COPY app/ .
 
 # Copy requirements.txt to the container
 COPY requirements.txt .

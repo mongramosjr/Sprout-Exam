@@ -2,6 +2,8 @@ version: '3.8'
 
 services:
   backend:
-    build: ./backend
+    build:
+      context: ./backend  # Path to the directory containing the Dockerfile
+      dockerfile: Dockerfile  # Name of the Dockerfile
     ports:
-      - "8000:8000"  # Port mapping for FastAPI server
+      - "8000:8000"  # Port mapping for FastAPI
