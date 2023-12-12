@@ -1,0 +1,24 @@
+__pycache__
+
+# Ignore virtual environment
+sprout-exam-venv
+
+# Node.JS
+node_modules/
+
+# FastAPI
+__pycache__/
+.ipynb_checkpoints/
+*.pyc
+*.pyo
+*.pyd
+*.pyc
+*.env
+
+# Vue.js
+/dist/
+/cache/
+.yarn/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
