@@ -44,15 +44,15 @@ List of employees (GET method)
 
 Show the info of an employee (GET method)
 
-***http://localhost:8000/api/employee/{id}***
+***http://localhost:8000/api/employees/{employee_id}***
 
 Delete a particular record of an employee (DELETE method)
 
-***http://localhost:8000/api/employee/{id}***
+***http://localhost:8000/api/employees/{employee_id}***
 
 Update the info of an employee (PUT method)
 
-***http://localhost:8000/api/employee/{id}***
+***http://localhost:8000/api/employees/{employee_id}***
 
 Create a record of an employee (POST method)
-***http://localhost:8000/api/employee***
+***http://localhost:8000/api/employees/***
