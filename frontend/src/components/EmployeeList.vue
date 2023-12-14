@@ -3,8 +3,7 @@
     <h2>Employee List</h2>
     <ul>
       <li v-for="employee in employees" :key="employee.id">
-        {{ employee.name }} - {{ employee.email }}
-        <!-- You can display other employee details as needed -->
+        {{ employee.name }} - {{ employee.hire_date }}
       </li>
     </ul>
   </div>
@@ -31,7 +30,6 @@ export default {
         })
         .catch((error) => {
           console.error('Failed to fetch employees:', error);
-          // Handle fetch employees error (display error message, etc.)
         });
     }
   }

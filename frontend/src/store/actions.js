@@ -5,9 +5,8 @@ const actions = {
     try {
       const response = await ApiService.login(credentials);
       commit('SET_TOKEN', response.data.token);
-      // Handle token storage (e.g., in local storage)
     } catch (error) {
-      // Handle login error
+      console.error(`Error in login`, error);
     }
   },
 
@@ -16,11 +15,45 @@ const actions = {
       const response = await ApiService.getEmployees(state.token);
       commit('SET_EMPLOYEES', response.data);
     } catch (error) {
-      // Handle fetch employees error
+      console.error(`Error in fetching list of employees`, error);
     }
   },
 
-  // Other actions for CRUD operations (create, update, delete)
+  async fetchEmployeeById({ commit, state  }, id) {
+    try {
+      const response = await ApiService.getEmployeeById(id, state.token);
+        commit('SET_SELECTED_EMPLOYEE', response.data);
+    } catch (error) {
+    console.error(`Error fetching employee with ID ${id}:`, error);
+  }
+  },
+
+  async addNewEmployee({ dispatch, state  }, employeeData) {
+    try {
+      await ApiService.addEmployee(employeeData, state.token);
+      dispatch('fetchAllEmployees'); // Refresh employee list after adding
+    } catch (error) {
+      console.error('Error adding employee:', error);
+    }
+  },
+
+  async updateExistingEmployee({ dispatch, state  }, { id, employeeData }) {
+    try {
+      await ApiService.updateEmployee(id, employeeData, state.token);
+      dispatch('fetchAllEmployees'); // Refresh employee list after updating
+    } catch (error) {
+      console.error(`Error updating employee with ID ${id}:`, error);
+    }
+  },
+
+  async removeEmployee({ dispatch, state  }, id) {
+    try {
+      await ApiService.deleteEmployee(id, state.token);
+      dispatch('fetchAllEmployees'); // Refresh employee list after deletion
+    } catch (error) {
+      console.error(`Error deleting employee with ID ${id}:`, error);
+    }
+  },
 };
 
 export default actions;

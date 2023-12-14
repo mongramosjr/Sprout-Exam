@@ -7,8 +7,8 @@
         <input type="text" id="name" v-model="newEmployee.name" />
       </div>
       <div>
-        <label for="email">Email:</label>
-        <input type="email" id="email" v-model="newEmployee.email" />
+        <label for="hire_date">Hire Date:</label>
+        <input type="date" id="hire_date" v-model="newEmployee.hire_date" />
       </div>
       <!-- Other input fields for employee details -->
       <button type="submit">Create</button>
@@ -22,8 +22,7 @@ export default {
     return {
       newEmployee: {
         name: '',
-        email: ''
-        // Other fields for the new employee
+        hire_date: ''
       }
     };
   },

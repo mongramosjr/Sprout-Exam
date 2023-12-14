@@ -33,13 +33,11 @@ export default {
       // Call Vuex action to handle login
       this.$store.dispatch('login', credentials)
         .then(() => {
-          // Redirect to employee list or perform necessary actions upon successful login
-          // For example:
+          // Redirect to employee list
           this.$router.push('/employee-list');
         })
         .catch((error) => {
           console.error('Login failed:', error);
-          // Handle login error (display error message, etc.)
         });
     }
   }

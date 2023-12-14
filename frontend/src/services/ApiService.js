@@ -15,7 +15,37 @@ const ApiService = {
     });
   },
 
-  // Other API service methods for CRUD operations
+  getEmployeeById(id, token) {
+    return axios.get(`${BASE_URL}/employees/${id}`, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+  },
+
+  addEmployee(employeeData, token) {
+    return axios.post(`${BASE_URL}/employees`, employeeData, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+  },
+
+  updateEmployee(id, employeeData, token) {
+    return axios.put(`${BASE_URL}/employees/${id}`, employeeData , {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+  },
+
+  deleteEmployee(id, token) {
+    return axios.delete(`${BASE_URL}/employees/${id}`, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+  },
 };
 
 export default ApiService;

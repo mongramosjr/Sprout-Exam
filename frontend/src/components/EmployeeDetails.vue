@@ -3,8 +3,7 @@
     <h2>Employee Details</h2>
     <div v-if="employee">
       <p><strong>Name:</strong> {{ employee.name }}</p>
-      <p><strong>Email:</strong> {{ employee.email }}</p>
-      <!-- Display other employee details -->
+      <p><strong>Hire Date:</strong> {{ employee.hire_date }}</p>
     </div>
     <div v-else>
       <p>Loading employee details...</p>

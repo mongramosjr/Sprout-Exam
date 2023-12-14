@@ -7,8 +7,8 @@
         <input type="text" id="name" v-model="editedEmployee.name" />
       </div>
       <div>
-        <label for="email">Email:</label>
-        <input type="email" id="email" v-model="editedEmployee.email" />
+        <label for="hire_date">Hire Date:</label>
+        <input type="date" id="hire_date" v-model="editedEmployee.hire_date" />
       </div>
       <!-- Other input fields for editing employee details -->
       <button type="submit">Update</button>
@@ -23,8 +23,7 @@ export default {
       editedEmployee: {
         id: null,
         name: '',
-        email: ''
-        // Other fields for the edited employee
+        hire_date: ''
       }
     };
   },
@@ -45,7 +44,6 @@ export default {
         })
         .catch((error) => {
           console.error('Failed to fetch employee details:', error);
-          // Handle fetch employee details error (display error message, etc.)
         });
     },
     updateEmployee() {
@@ -53,12 +51,10 @@ export default {
       this.$store.dispatch('updateEmployee', this.editedEmployee)
         .then(() => {
           // Redirect to employee list or perform necessary actions upon successful update
-          // For example:
           this.$router.push('/employee-list');
         })
         .catch((error) => {
           console.error('Failed to update employee:', error);
-          // Handle update employee error (display error message, etc.)
         });
     }
   }
