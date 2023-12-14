@@ -33,7 +33,7 @@ const actions = {
   async addNewEmployee({ dispatch, state  }, employeeData) {
     try {
       await ApiService.addEmployee(employeeData, state.token);
-      dispatch('fetchAllEmployees'); // Refresh employee list after adding
+      dispatch('fetchEmployees'); // Refresh employee list after adding
     } catch (error) {
       console.error('Error adding employee:', error);
     }
@@ -42,7 +42,7 @@ const actions = {
   async updateExistingEmployee({ dispatch, state  }, { id, employeeData }) {
     try {
       await ApiService.updateEmployee(id, employeeData, state.token);
-      dispatch('fetchAllEmployees'); // Refresh employee list after updating
+      dispatch('fetchEmployees'); // Refresh employee list after updating
     } catch (error) {
       console.error(`Error updating employee with ID ${id}:`, error);
     }
@@ -51,7 +51,7 @@ const actions = {
   async removeEmployee({ dispatch, state  }, id) {
     try {
       await ApiService.deleteEmployee(id, state.token);
-      dispatch('fetchAllEmployees'); // Refresh employee list after deletion
+      dispatch('fetchEmployees'); // Refresh employee list after deletion
     } catch (error) {
       console.error(`Error deleting employee with ID ${id}:`, error);
     }

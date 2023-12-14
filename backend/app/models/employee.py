@@ -1,9 +1,9 @@
 from pydantic import BaseModel
 from datetime import date
-
+import uuid
 
 class BaseEmployee(BaseModel):
-    id: int
+    id: uuid.UUID = uuid.uuid4()
     name: str
     hire_date: date
 
