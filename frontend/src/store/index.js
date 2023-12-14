@@ -7,6 +7,7 @@ const store = createStore({
   state: {
     token: null,
     employees: [],
+    selected_employee: null,
   },
   mutations,
   actions,

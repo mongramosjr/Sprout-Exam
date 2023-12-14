@@ -4,6 +4,9 @@
     <div v-if="employee">
       <p><strong>Name:</strong> {{ employee.name }}</p>
       <p><strong>Hire Date:</strong> {{ employee.hire_date }}</p>
+      <p><router-link :to="'/employee-edit/' + employee.id">
+        edit
+        </router-link></p>
     </div>
     <div v-else>
       <p>Loading employee details...</p>
@@ -31,11 +34,13 @@ export default {
       this.$store.dispatch('fetchEmployeeById', employeeId)
         .then((employee) => {
           // Update local data with fetched employee details
-          this.employee = { ...employee };
+          this.employee = employee;
+          console.log(JSON.stringify(employee))
+          // this.$store.state.employees.find(emp => emp.id === employeeId);
+          //this.$store.getters.getEmployees
         })
         .catch((error) => {
           console.error('Failed to fetch employee details:', error);
-          // Handle fetch employee details error (display error message, etc.)
         });
     }
   }

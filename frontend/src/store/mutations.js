@@ -17,4 +17,7 @@ export default {
     SET_EMPLOYEES(state, employees) {
         state.employees = employees;
     },
+    SET_SELECTED_EMPLOYEE(state, employee) {
+        state.selected_employee = employee;
+    },
   };

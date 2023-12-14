@@ -15,6 +15,7 @@ const actions = {
   async fetchEmployees({ commit, state }) {
     try {
       const response = await ApiService.getEmployees(state.token);
+      console.log(JSON.stringify(response));
       commit('SET_EMPLOYEES', response.data);
     } catch (error) {
       console.error(`Error in fetching list of employees`, error);
@@ -24,10 +25,13 @@ const actions = {
   async fetchEmployeeById({ commit, state  }, id) {
     try {
       const response = await ApiService.getEmployeeById(id, state.token);
-        commit('SET_SELECTED_EMPLOYEE', response.data);
+      console.log(JSON.stringify(response));
+      commit('SET_SELECTED_EMPLOYEE', response.data);
+      return response.data;
     } catch (error) {
-    console.error(`Error fetching employee with ID ${id}:`, error);
-  }
+      console.error(`Error fetching employee with ID ${id}:`, error);
+      throw error; 
+    }
   },
 
   async addNewEmployee({ dispatch, state  }, employeeData) {
@@ -41,6 +45,9 @@ const actions = {
 
   async updateExistingEmployee({ dispatch, state  }, { id, employeeData }) {
     try {
+      console.log("======================")
+      console.log(JSON.stringify(employeeData));
+      console.log("==================")
       await ApiService.updateEmployee(id, employeeData, state.token);
       dispatch('fetchEmployees'); // Refresh employee list after updating
     } catch (error) {

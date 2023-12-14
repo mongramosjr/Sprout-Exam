@@ -33,14 +33,13 @@ export default {
   },
   methods: {
     fetchEmployeeDetails() {
-      // Retrieve employee ID from route params or component props
-      const employeeId = this.$route.params.id; // Assuming using Vue Router
+      const employeeId = this.$route.params.id; 
 
       // Call Vuex action to fetch the employee details by ID
       this.$store.dispatch('fetchEmployeeById', employeeId)
         .then((employee) => {
           // Update local data with fetched employee details
-          this.editedEmployee = { ...employee };
+          this.editedEmployee = employee;
         })
         .catch((error) => {
           console.error('Failed to fetch employee details:', error);
@@ -48,9 +47,13 @@ export default {
     },
     updateEmployee() {
       // Call Vuex action to update the employee
+      const employeeId = this.$route.params.id; 
+      this.editedEmployee.id = employeeId;
+      console.log("___MONG____");
+      console.log(JSON.stringify(this.editedEmployee));
+      console.log("___MONG____");
       this.$store.dispatch('updateExistingEmployee', this.editedEmployee)
         .then(() => {
-          // Redirect to employee list or perform necessary actions upon successful update
           this.$router.push('/employee-list');
         })
         .catch((error) => {
