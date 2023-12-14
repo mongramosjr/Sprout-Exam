@@ -4,7 +4,9 @@ const actions = {
   async login({ commit }, credentials) {
     try {
       const response = await ApiService.login(credentials);
-      commit('SET_TOKEN', response.data.token);
+      //const token = response.data.token
+      console.log(JSON.stringify(response));
+      commit('SET_TOKEN', response.data.access_token);
     } catch (error) {
       console.error(`Error in login`, error);
     }

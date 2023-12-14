@@ -1,6 +1,8 @@
 from fastapi import FastAPI, Depends, HTTPException, status
 from app.api import employees  # Import the employees router
 from app.api import auth  # Import the auth router
+from fastapi.middleware.cors import CORSMiddleware
+
 
 from jose import JWTError, jwt
 from datetime import datetime, timedelta
@@ -8,6 +10,22 @@ from fastapi.security import HTTPBasic, HTTPBasicCredentials, HTTPBearer, HTTPAu
 
 
 app = FastAPI()
+
+
+# Define allowed origins
+origins = [
+    "http://127.0.0.1:8080",
+    "http://localhost:8080",
+]
+
+# Apply CORS middleware with allowed origins
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 # Define a route and corresponding function
 @app.get("/")
