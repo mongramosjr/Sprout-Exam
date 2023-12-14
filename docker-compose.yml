@@ -7,3 +7,10 @@ services:
       dockerfile: Dockerfile  # Name of the Dockerfile
     ports:
       - "8000:8000"  # Port mapping for FastAPI
+
+  frontend:
+    build: 
+      context: ./frontend
+      dockerfile: Dockerfile 
+    ports:
+      - "8080:8080"  # Port mapping for Vue.js development server
