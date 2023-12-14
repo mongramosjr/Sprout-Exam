@@ -29,7 +29,7 @@ export default {
   methods: {
     createEmployee() {
       // Call Vuex action to create an employee
-      this.$store.dispatch('createEmployee', this.newEmployee)
+      this.$store.dispatch('addNewEmployee', this.newEmployee)
         .then(() => {
           // Redirect to employee list or perform necessary actions upon successful creation
           // For example:

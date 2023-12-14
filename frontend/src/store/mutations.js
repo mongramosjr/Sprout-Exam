@@ -14,4 +14,7 @@ export default {
             state.employees.splice(index, 1, updatedEmployee);
         }
     },
+    SET_EMPLOYEES(state, employees) {
+        state.employees = employees;
+    },
   };

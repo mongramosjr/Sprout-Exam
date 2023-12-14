@@ -48,7 +48,7 @@ export default {
     },
     updateEmployee() {
       // Call Vuex action to update the employee
-      this.$store.dispatch('updateEmployee', this.editedEmployee)
+      this.$store.dispatch('updateExistingEmployee', this.editedEmployee)
         .then(() => {
           // Redirect to employee list or perform necessary actions upon successful update
           this.$router.push('/employee-list');
