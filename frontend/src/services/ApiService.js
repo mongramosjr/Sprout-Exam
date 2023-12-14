@@ -16,7 +16,7 @@ const ApiService = {
   },
 
   getEmployeeById(id, token) {
-    return axios.get(`${BASE_URL}/employees/${id}`, {
+    return axios.get(`${BASE_URL}/api/employees/${id}`, {
       headers: {
         Authorization: `Bearer ${token}`,
       },
@@ -24,7 +24,7 @@ const ApiService = {
   },
 
   addEmployee(employeeData, token) {
-    return axios.post(`${BASE_URL}/employees/`, employeeData, {
+    return axios.post(`${BASE_URL}/api/employees/`, employeeData, {
       headers: {
         Authorization: `Bearer ${token}`,
       },
@@ -32,7 +32,7 @@ const ApiService = {
   },
 
   updateEmployee(id, employeeData, token) {
-    return axios.put(`${BASE_URL}/employees/${id}`, employeeData , {
+    return axios.put(`${BASE_URL}/api/employees/${id}`, employeeData , {
       headers: {
         Authorization: `Bearer ${token}`,
       },
@@ -40,7 +40,7 @@ const ApiService = {
   },
 
   deleteEmployee(id, token) {
-    return axios.delete(`${BASE_URL}/employees/${id}`, {
+    return axios.delete(`${BASE_URL}/api/employees/${id}`, {
       headers: {
         Authorization: `Bearer ${token}`,
       },
