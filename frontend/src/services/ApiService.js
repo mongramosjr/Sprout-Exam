@@ -24,7 +24,7 @@ const ApiService = {
   },
 
   addEmployee(employeeData, token) {
-    return axios.post(`${BASE_URL}/employees`, employeeData, {
+    return axios.post(`${BASE_URL}/employees/`, employeeData, {
       headers: {
         Authorization: `Bearer ${token}`,
       },
