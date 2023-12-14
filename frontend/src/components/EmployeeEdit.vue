@@ -50,6 +50,7 @@ export default {
       const employeeId = this.$route.params.id; 
       this.editedEmployee.id = employeeId;
       console.log("___MONG____");
+      console.log(JSON.stringify(employeeId));
       console.log(JSON.stringify(this.editedEmployee));
       console.log("___MONG____");
       this.$store.dispatch('updateExistingEmployee', this.editedEmployee)

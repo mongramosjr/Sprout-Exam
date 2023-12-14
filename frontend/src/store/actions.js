@@ -43,15 +43,16 @@ const actions = {
     }
   },
 
-  async updateExistingEmployee({ dispatch, state  }, { id, employeeData }) {
+  async updateExistingEmployee({ dispatch, state  }, employeeData) {
     try {
       console.log("======================")
+      //console.log(JSON.stringify(id));
       console.log(JSON.stringify(employeeData));
       console.log("==================")
-      await ApiService.updateEmployee(id, employeeData, state.token);
+      await ApiService.updateEmployee(employeeData.id, employeeData, state.token);
       dispatch('fetchEmployees'); // Refresh employee list after updating
     } catch (error) {
-      console.error(`Error updating employee with ID ${id}:`, error);
+      console.error(`Error updating employee with ID ${employeeData.id}:`, error);
     }
   },
 
